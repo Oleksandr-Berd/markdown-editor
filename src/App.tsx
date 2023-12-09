@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ThemeContext from "./utils/context/themeContext";
 
 import './App.css';
@@ -8,24 +8,62 @@ import { ThemeProvider } from '@emotion/react';
 import SharedLayout from './layouts/SharedLayout/SharedLayout';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
+import { getAllData } from './services/api';
+import Loader from './components/Loader/Loader';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+
+
 
 function App() {
+const [allContent, setAllContent] = useState<[] | null>(null);
+const [isLoading, setIsLoading] = useState<boolean>(false);
+const [isError, setIsError] = useState<string | null>(null)
+
 
 const { theme } = useContext(ThemeContext);
 
 const currentTheme = theme === "light" ? lightTheme : darkTheme;
 
-console.log(currentTheme);
+const fetchData = async () =>{
+  setIsLoading(true)
+  const result = await getAllData()
 
+  if (result.message){
+    setIsError(result.message);
+  } else {
+    setAllContent(result);
+  } 
+setIsLoading(false);
+
+  }
+
+
+useEffect(() => {
+fetchData()
+},[])
+
+let defaultContent
+
+if (allContent) defaultContent = allContent.find(({name}) => name==="welcome.md")
+
+console.log(defaultContent);
 
   return (
     <>
       <ThemeProvider theme={currentTheme}>
-        <SharedLayout>
-          <Routes>
-            <Route path='/' element={<HomePage/>}/>
-          </Routes>
-        </SharedLayout>
+        {isError ? (
+          <ErrorPage message={isError} />
+        ) : (
+          <SharedLayout defaultContent={defaultContent}>
+            {isLoading ? <Loader /> : null}
+            <Routes>
+              <Route
+                path="/"
+                element={<HomePage defaultContent={defaultContent} />}
+              />
+            </Routes>
+          </SharedLayout>
+        )}
       </ThemeProvider>
     </>
   );

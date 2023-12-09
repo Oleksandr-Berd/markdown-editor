@@ -7,14 +7,18 @@ import saveIcon from "../../assets/images/icon-save.svg";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import FunctionButton from "../../components/FunctionButton/FunctionButton";
 
-const Header: React.FC = () => {
+type Props = {
+    docName:string | null
+}
+
+const Header: React.FC<Props> = ({ docName }) => {
   return (
     <SC.HeaderStyled>
       <BurgerMenu />
       <SC.CommonWrapper>
         <SC.DocWrapper>
           <DocIcon />
-          <p>welcome.md</p>
+          <p>{docName ? docName : "......"}</p>
         </SC.DocWrapper>
         <SC.ButtonsWrapper>
           <FunctionButton icon={deleteIcon} typeName="delete" />
