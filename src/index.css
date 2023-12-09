@@ -1,0 +1,64 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: "RobotoSlabLight";
+  src: local("Roboto_Slab"),
+    url("./assets/fonts/Roboto_Slab/static/RobotoSlab-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoSlabBold";
+  src: local("Roboto_Slab"),
+    url("./assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoSlabRegular";
+  src: local("Roboto_Slab"),
+    url("./assets/fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf") format("truetype");
+}
+
+
+@font-face {
+  font-family: "RobotoLight";
+  src: local("Roboto"),
+    url("./assets/fonts/Roboto/Roboto-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoRegular";
+  src: local("Roboto"),
+    url("./assets/fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoMono";
+  src: local("Roboto_Mono"),
+    url("./assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf") format("truetype");
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
