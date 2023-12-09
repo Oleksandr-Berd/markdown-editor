@@ -1,14 +1,16 @@
+import * as SC from "./FunctionButtonStyled"
+
 
 type Props = {
   icon: string;
-  typeName: string;
-}
+  typeName: "save" | "delete";
+};
 
 const FunctionButton:React.FC<Props> = ({icon, typeName}) => {
     return (
-      <button>
+      <SC.FunctionButtonStyled typeName={typeName}>
         <img src={icon} alt={typeName} />
-      </button>
+      </SC.FunctionButtonStyled>
     );
 }
  

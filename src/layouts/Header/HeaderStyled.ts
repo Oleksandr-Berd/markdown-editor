@@ -10,13 +10,13 @@ background-color: ${props => props.theme.headerBg};
 `
 
 export const CommonWrapper = styled.div`
-  display: flex;
+  display: inline-flex;
   flex-direction: row;
   align-items: center;
 
   padding-top: 8px;
   padding-bottom: 8px;
-  padding-left: 24px;
+  /* padding-left: 24px; */
   padding-right: 8px;
 `;
 
@@ -25,7 +25,7 @@ display: flex;
 flex-direction: row;
 align-items: center;
 
-margin-right: 89px;
+margin-right: 77px;
 
 color: #fff;
 
