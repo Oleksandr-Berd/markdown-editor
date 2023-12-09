@@ -2,7 +2,7 @@ import "@emotion/react";
 
 declare module "@emotion/react" {
   export interface Theme {
-    color: {
+    
       headerBg: string;
       backgroundColor: string;
       smallText: string;
@@ -14,4 +14,4 @@ declare module "@emotion/react" {
       secondaryText: string;
     };
   }
-}
+

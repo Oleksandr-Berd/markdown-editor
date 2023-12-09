@@ -1,3 +1,5 @@
+import * as SC from "./SharedLayoutStyled"
+
 import Header from "../Header/Header";
 
 type Props = {
@@ -6,10 +8,10 @@ type Props = {
 
 const SharedLayout: React.FC<Props> = ({ children }) => {
   return (
-    <main>
+    <SC.SharedLayoutStyled>
       <Header />
       {children}
-    </main>
+    </SC.SharedLayoutStyled>
   );
 };
 

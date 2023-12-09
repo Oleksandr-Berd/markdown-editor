@@ -2,7 +2,7 @@ import { createContext, Context } from "react";
 import { IState } from "./themeContextProvider";
 
 const ThemeContext: Context<IState> = createContext<IState>({
-  theme: "light",
+  theme: "dark",
   toggle: (theme) => {},
 });
 
