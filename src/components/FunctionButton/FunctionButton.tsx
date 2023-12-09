@@ -3,7 +3,7 @@ import * as SC from "./FunctionButtonStyled"
 
 type Props = {
   icon: string;
-  typeName: "save" | "delete";
+  typeName: "save" | "delete" | "switcher";
 };
 
 const FunctionButton:React.FC<Props> = ({icon, typeName}) => {

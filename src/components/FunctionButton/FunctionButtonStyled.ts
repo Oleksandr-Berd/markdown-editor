@@ -1,8 +1,8 @@
 import styled from "@emotion/styled";
 
 type StyleProps = {
-    typeName: "save" | "delete";
-}
+  typeName: "save" | "delete" | "switcher";
+};
 
 export const FunctionButtonStyled = styled.button<StyleProps>`
 padding-top: 12px;

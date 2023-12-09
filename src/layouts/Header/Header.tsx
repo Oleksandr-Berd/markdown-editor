@@ -1,11 +1,11 @@
-import * as SC from "./HeaderStyled"
+import * as SC from "./HeaderStyled";
 
 import { ReactComponent as DocIcon } from "../../assets/images/icon-document.svg";
-import deleteIcon from "../../assets/images/icon-delete.svg"
-import saveIcon from "../../assets/images/icon-save.svg"
+import deleteIcon from "../../assets/images/icon-delete.svg";
+import saveIcon from "../../assets/images/icon-save.svg";
 
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
-import FunctionButton from "../../components/FucntionButton/FunctionButton";
+import FunctionButton from "../../components/FunctionButton/FunctionButton";
 
 const Header: React.FC = () => {
   return (

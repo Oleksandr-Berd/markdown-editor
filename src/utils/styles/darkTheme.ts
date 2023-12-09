@@ -3,4 +3,5 @@ export const darkTheme: object = {
   backgroundColor: "#151619",
   text: "#fff",
   secondaryText: "#C1C4CB",
+  viewSwitcherBg: "#1D1F22",
 };

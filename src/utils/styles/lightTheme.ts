@@ -3,4 +3,5 @@ export const lightTheme: object = {
   backgroundColor: "#FFFFFF",
   text: "#35393F",
   secondaryText: "#7C8187",
+  viewSwitcherBg: "#F5F5F5",
 };
