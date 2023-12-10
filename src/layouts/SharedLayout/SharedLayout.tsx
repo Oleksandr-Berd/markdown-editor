@@ -21,7 +21,7 @@ const toggleSideBar = () => {
 
 
     return (
-      <SC.SharedLayoutStyled>
+      <SC.SharedLayoutStyled isSideBar={isSideBar}>
         {isSideBar ? <SideBar allContent={allContent} /> : null}
         <SC.CommonWrapper isSideBar={isSideBar}>
           <Header

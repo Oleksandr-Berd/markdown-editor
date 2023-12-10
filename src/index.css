@@ -44,9 +44,21 @@ code {
 }
 
 @font-face {
+  font-family: "RobotoMed";
+  src: local("Roboto"),
+    url("./assets/fonts/Roboto/Roboto-Medium.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "RobotoMono";
   src: local("Roboto_Mono"),
     url("./assets/fonts/Roboto_Mono/static/RobotoMono-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Com";
+  src: local("Commissioner"),
+    url("./assets/fonts/Commissioner/static/Commissioner-Bold.ttf") format("truetype");
 }
 
 ul{

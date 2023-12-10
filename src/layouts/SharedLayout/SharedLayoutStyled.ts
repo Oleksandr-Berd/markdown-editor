@@ -4,13 +4,15 @@ type StyleProps = {
     isSideBar: boolean;
 }
 
-export const SharedLayoutStyled = styled.main`
-position: relative;
+export const SharedLayoutStyled = styled.main<StyleProps>`
+  position: relative;
 
-height: 100%;
+  overflow: hidden;
 
-background-color: ${props => props.theme.backgroundColor}
-`
+  height: ${(props) => (props.isSideBar ? "100vh" : "100%")};
+
+  background-color: ${(props) => props.theme.backgroundColor};
+`;
 
 export const CommonWrapper = styled.div<StyleProps>`
 margin-left: ${props => props.isSideBar ? "65%" : "0"};

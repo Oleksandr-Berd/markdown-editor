@@ -11,12 +11,25 @@ export type ContentType = {
     | {
         content: string;
         name: string;
-      }
-    | undefined;
+        createdAt: string;
+        _id:string;
+      } 
+      
+    |  undefined;
+};
+
+type Content = {
+  content: string;
+  name: string;
+  createdAt: string;
+  _id: string;
+};
+
+export type AllContent = {
+  allContent: Content[];
 };
 
 export type ButtonType = {
   icon: string;
   typeName: "save" | "delete" | "switcher" | "add" | undefined;
-  children?: ReactNode;
 };

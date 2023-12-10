@@ -1,7 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://common-server-ldx7.onrender.com/api/markdown",
+  //   baseURL: "https://common-server-ldx7.onrender.com/api/markdown",
+  baseURL: "http://localhost:5002/api/markdown",
 });
 
 export const getAllData = async () => {

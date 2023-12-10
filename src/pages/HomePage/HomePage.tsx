@@ -7,10 +7,16 @@ const HomePage: React.FC<ContentType> = ({ defaultContent }) => {
     ? defaultContent.content.split("\n\n")
     : null;
 
+
+
   return (
     <SC.HomePageStyled>
       {contentArray
-        ? contentArray.map((el) => <p key={el}>{el}</p>)
+        ? contentArray.map((el) => (
+            <SC.ContentItem key={el}>
+              {el}
+            </SC.ContentItem>
+          ))
         : "............"}
     </SC.HomePageStyled>
   );
