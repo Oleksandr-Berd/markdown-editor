@@ -1,8 +1,10 @@
 import { DNA } from "react-loader-spinner";
 
+import * as SC from "./LoaderStyled"
+
 const Loader:React.FC = () => {
     return (
-      <div>
+      <SC.LoaderStyled>
         <DNA
           visible={true}
           height="80"
@@ -11,7 +13,7 @@ const Loader:React.FC = () => {
           wrapperStyle={{}}
           wrapperClass="dna-wrapper"
         />
-      </div>
+      </SC.LoaderStyled>
     );
 }
  

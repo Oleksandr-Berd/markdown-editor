@@ -5,16 +5,22 @@ export const SideBarStyled = styled.aside`
   top: 0;
   left: 0;
 
-  height: 100vh;
+  height: calc(100% - 57px);
+
   width: calc(65% - 24 * 2px);
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   padding-top: 27px;
+  padding-bottom: 30px;
   padding-left: 24px;
   padding-right: 24px;
 
   background-color: #1d1f22;
 
-  & > h2 {
+  & h2 {
     margin-bottom: 27px;
 
     text-transform: uppercase;
@@ -25,7 +31,7 @@ export const SideBarStyled = styled.aside`
     color: #fff;
   }
 
-  & > h3 {
+  & h3 {
     margin-bottom: 29px;
 
     text-transform: uppercase;
@@ -38,8 +44,8 @@ export const SideBarStyled = styled.aside`
 `;
 
 export const SideBarList = styled.ul`
-margin-top: 24px;
-`
+  margin-top: 24px;
+`;
 
 export const SideBarItem = styled.li`
   display: flex;

@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
+import { ThemeProvider } from "@emotion/react";
+
+
 import ThemeContext from "./utils/context/themeContext";
 
 import './App.css';
 import { lightTheme } from './utils/styles/lightTheme';
 import { darkTheme } from './utils/styles/darkTheme';
-import { ThemeProvider } from '@emotion/react';
 import SharedLayout from './layouts/SharedLayout/SharedLayout';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
