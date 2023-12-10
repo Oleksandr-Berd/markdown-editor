@@ -6,7 +6,7 @@ export const SideBarStyled = styled.aside`
   left: 0;
 
   height: 100vh;
-  width: 53%;
+  width: calc(65% - 24 * 2px);
 
   padding-top: 27px;
   padding-left: 24px;

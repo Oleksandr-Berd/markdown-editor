@@ -15,6 +15,9 @@ export const SharedLayoutStyled = styled.main<StyleProps>`
 `;
 
 export const CommonWrapper = styled.div<StyleProps>`
+width: 100%;
+
+
 margin-left: ${props => props.isSideBar ? "65%" : "0"};
 overflow: hidden;
 `
