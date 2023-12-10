@@ -16,8 +16,9 @@ export const CommonWrapper = styled.div`
 
   padding-top: 8px;
   padding-bottom: 8px;
-  /* padding-left: 24px; */
   padding-right: 8px;
+
+  margin-left: 24px;
 `;
 
 export const DocWrapper = styled.div`

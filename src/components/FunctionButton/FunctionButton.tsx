@@ -1,15 +1,11 @@
+import { ButtonType } from "../../utils/types/types";
 import * as SC from "./FunctionButtonStyled"
 
 
-type Props = {
-  icon: string;
-  typeName: "save" | "delete" | "switcher";
-};
-
-const FunctionButton:React.FC<Props> = ({icon, typeName}) => {
+const FunctionButton:React.FC<Partial <ButtonType>> = ({icon, typeName}) => {
     return (
       <SC.FunctionButtonStyled typeName={typeName}>
-        <img src={icon} alt={typeName} />
+        {typeName !== "add" ? <img src={icon} alt={typeName} /> : null}
       </SC.FunctionButtonStyled>
     );
 }

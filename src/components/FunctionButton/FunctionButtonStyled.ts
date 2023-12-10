@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
+import { ButtonType } from "../../utils/types/types";
 
-type StyleProps = {
-  typeName: "save" | "delete" | "switcher";
-};
 
-export const FunctionButtonStyled = styled.button<StyleProps>`
+
+export const FunctionButtonStyled = styled.button<Partial <ButtonType>>`
 padding-top: 12px;
 padding-bottom: 12px;
 padding-left: 12px;

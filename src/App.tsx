@@ -46,7 +46,6 @@ let defaultContent
 
 if (allContent) defaultContent = allContent.find(({name}) => name==="welcome.md")
 
-console.log(defaultContent);
 
   return (
     <>
@@ -54,7 +53,7 @@ console.log(defaultContent);
         {isError ? (
           <ErrorPage message={isError} />
         ) : (
-          <SharedLayout defaultContent={defaultContent}>
+          <SharedLayout defaultContent={defaultContent} allContent = {allContent ? allContent : []}>
             {isLoading ? <Loader /> : null}
             <Routes>
               <Route

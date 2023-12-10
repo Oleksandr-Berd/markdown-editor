@@ -6,15 +6,14 @@ import saveIcon from "../../assets/images/icon-save.svg";
 
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import FunctionButton from "../../components/FunctionButton/FunctionButton";
+import { HeaderProps } from '../../utils/types/types';
 
-type Props = {
-    docName:string | null
-}
 
-const Header: React.FC<Props> = ({ docName }) => {
+
+const Header: React.FC<HeaderProps> = ({ docName, toggleSideBar, isSideBar }) => {
   return (
     <SC.HeaderStyled>
-      <BurgerMenu />
+      <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />
       <SC.CommonWrapper>
         <SC.DocWrapper>
           <DocIcon />
