@@ -10,15 +10,20 @@ import { HeaderProps } from '../../utils/types/types';
 
 
 
-const Header: React.FC<HeaderProps> = ({ docName, toggleSideBar, isSideBar }) => {
+const Header: React.FC<HeaderProps> = ({
+  docName,
+  toggleSideBar,
+  isSideBar,
+  specificName,
+}) => {
   return (
     <SC.HeaderStyled>
       <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />
+      <SC.DocWrapper>
+        <DocIcon />
+        <p>{specificName ? specificName : docName}</p>
+      </SC.DocWrapper>
       <SC.CommonWrapper>
-        <SC.DocWrapper>
-          <DocIcon />
-          <p>{docName ? docName : "......"}</p>
-        </SC.DocWrapper>
         <SC.ButtonsWrapper>
           <FunctionButton icon={deleteIcon} typeName="delete" />
           <FunctionButton icon={saveIcon} typeName="save" />

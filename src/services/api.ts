@@ -14,3 +14,13 @@ export const getAllData = async () => {
     return error;
   }
 };
+
+export const getOneData = async (name:string) => {
+    try {
+         const response = await instance.get(`/${name}`);
+
+         return response.data;
+    } catch (error) {
+         return error;
+    }
+}

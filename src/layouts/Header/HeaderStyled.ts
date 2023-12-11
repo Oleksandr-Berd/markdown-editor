@@ -23,18 +23,19 @@ export const CommonWrapper = styled.div`
 `;
 
 export const DocWrapper = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-margin-right: 77px;
+  text-align: center;
 
-color: #fff;
+  color: #fff;
 
-& > svg{
-    margin-right: 16px;
-}
-`
+  & > svg {
+    margin-right: 12px;
+    margin-left: 12px;
+  }
+`;
 
 export const ButtonsWrapper = styled.div`
 display: flex;

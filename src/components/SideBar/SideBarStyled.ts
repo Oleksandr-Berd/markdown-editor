@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { NavLink } from "react-router-dom";
 
 export const SideBarStyled = styled.aside`
   position: absolute;
@@ -70,7 +71,7 @@ export const Date = styled.p`
   color: #7c8187;
 `;
 
-export const Name = styled.p`
+export const Name = styled(NavLink)`
   font-size: 15px;
   font-family: "RobotoRegular";
   color: #fff;

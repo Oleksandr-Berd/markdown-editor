@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
 
 export type HeaderProps = {
   docName: string | null;
   toggleSideBar: () => void;
   isSideBar: boolean;
+  specificName: string | null;
 };
 
 export type ContentType = {
@@ -18,7 +18,7 @@ export type ContentType = {
     |  undefined;
 };
 
-type Content = {
+export type Content = {
   content: string;
   name: string;
   createdAt: string;

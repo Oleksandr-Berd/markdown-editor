@@ -9,7 +9,7 @@ import docIcon from "../../assets/images/icon-document.svg";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
 const SideBar: React.FC<AllContent> = ({ allContent }) => {
-
+  
 
   if (allContent && allContent.length > 0) {
     return (
@@ -24,7 +24,7 @@ const SideBar: React.FC<AllContent> = ({ allContent }) => {
                 <img src={docIcon} alt="docIcon" />
                 <div>
                   <SC.Date>{transformDateFormat(createdAt)}</SC.Date>
-                  <SC.Name>{name}</SC.Name>
+                  <SC.Name to={name}>{name}</SC.Name>
                 </div>
               </SC.SideBarItem>
             ))}
