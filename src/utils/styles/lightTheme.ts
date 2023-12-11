@@ -4,4 +4,5 @@ export const lightTheme: object = {
   text: "#35393F",
   secondaryText: "#7C8187",
   viewSwitcherBg: "#F5F5F5",
+  blockquote: "#F5F5F5",
 };

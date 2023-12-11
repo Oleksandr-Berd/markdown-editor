@@ -34,7 +34,7 @@ const SharedLayout: React.FC<Props & ContentType> = ({
           isSideBar={isSideBar}
           specificName={specificName}
         />
-        <ViewSwitcher />
+        <ViewSwitcher specificName={specificName ? specificName : null} />
         {children}
       </SC.CommonWrapper>
     </SC.SharedLayoutStyled>

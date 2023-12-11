@@ -4,4 +4,5 @@ export const darkTheme: object = {
   text: "#fff",
   secondaryText: "#C1C4CB",
   viewSwitcherBg: "#1D1F22",
+  blockquote: "#2b2d31",
 };

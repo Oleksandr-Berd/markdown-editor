@@ -1,4 +1,3 @@
-
 export type HeaderProps = {
   docName: string | null;
   toggleSideBar: () => void;
@@ -12,10 +11,9 @@ export type ContentType = {
         content: string;
         name: string;
         createdAt: string;
-        _id:string;
-      } 
-      
-    |  undefined;
+        _id: string;
+      }
+    | undefined;
 };
 
 export type Content = {
@@ -32,4 +30,7 @@ export type AllContent = {
 export type ButtonType = {
   icon: string;
   typeName: "save" | "delete" | "switcher" | "add" | undefined;
+  handle: () => void;
+  isEdit: boolean;
+  specificName: string | null;
 };

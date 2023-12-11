@@ -2,12 +2,12 @@ import styled from "@emotion/styled";
 import { ButtonType } from "../../utils/types/types";
 
 export const FunctionButtonStyled = styled.button<Partial<ButtonType>>`
-width: ${props =>props.typeName === "add" ? "100%" : "auto"};
+  width: ${(props) => (props.typeName === "add" ? "100%" : "auto")};
 
-  padding-top: 12px;
-  padding-bottom: 12px;
-  padding-left: 12px;
-  padding-right: 12px;
+  padding-top: ${(props) => (props.typeName === "switcher" ? "0px" : "12px")};
+  padding-bottom: ${(props) => (props.typeName === "switcher" ? "0px" : "12px")};
+  padding-left: ${(props) => (props.typeName === "switcher" ? "0px" : "12px")};
+  padding-right: ${(props) => (props.typeName === "switcher" ? "0px" : "12px")};
 
   margin-right: ${(props) => (props.typeName === "delete" ? "12px" : "0")};
 
@@ -22,4 +22,8 @@ width: ${props =>props.typeName === "add" ? "100%" : "auto"};
 
   border: none;
   border-radius: 4px;
+
+  & > img {
+    height: ${(props) => (props.typeName === "switcher" ? "16px" : "auto")};
+  }
 `;

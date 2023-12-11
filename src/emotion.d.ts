@@ -6,7 +6,8 @@ declare module "@emotion/react" {
     backgroundColor: string;
     text: string;
     secondaryText: string;
-    viewSwitcherBg: string
+    viewSwitcherBg: string;
+    blockquote: string;
   };
   }
 

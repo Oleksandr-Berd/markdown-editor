@@ -14,6 +14,7 @@ import Loader from "./components/Loader/Loader";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import DocPage from "./pages/DocPage/DocPage";
 import { Content } from "./utils/types/types";
+import EditedContentPage from "./pages/EditedContent/EditedContentPage";
 
 function App() {
   const [allContent, setAllContent] = useState<[] | null>(null);
@@ -79,6 +80,10 @@ function App() {
               <Route
                 path=":name"
                 element={<DocPage fetchDoc={fetchDoc} doc={doc} />}
+              />
+              <Route
+                path="edit"
+                element={<EditedContentPage doc={doc ? doc : defaultContent}/>}
               />
             </Routes>
           </SharedLayout>
