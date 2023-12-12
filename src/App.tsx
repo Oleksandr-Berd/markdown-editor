@@ -21,8 +21,7 @@ function App() {
   const [allContent, setAllContent] = useState<[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<string | null>(null);
-  const [doc, setDoc] = useState<Content | null>(null)
-
+  const [doc, setDoc] = useState<Content | null>(null);
 
   const { theme } = useContext(ThemeContext);
 
@@ -44,14 +43,14 @@ function App() {
     fetchData();
   }, []);
 
-  const fetchDoc = async (name:string) => {
+  const fetchDoc = async (name: string) => {
     setIsLoading(true);
     const result = await getOneData(name);
 
     if (result.message) {
       setIsError(result.message);
     } else {
-      setDoc(result.result[0]);
+      setDoc(result[0]);
     }
     setIsLoading(false);
   };
@@ -88,7 +87,7 @@ function App() {
               />
               <Route
                 path="new"
-                element={<NewDocPage/>}
+                element={<NewDocPage />}
               />
             </Routes>
           </SharedLayout>

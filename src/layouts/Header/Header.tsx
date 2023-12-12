@@ -22,7 +22,6 @@ const location = useLocation()
 
 const {pathname} = location
 
-
   return (
     <SC.HeaderStyled>
       <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />

@@ -5,6 +5,7 @@ import ViewSwitcher from "../ViewSwitcher/ViewSwitcher";
 import { useState } from "react";
 import { ContentType } from "../../utils/types/types";
 import SideBar from "../../components/SideBar/SideBar";
+import { useLocation } from "react-router-dom";
 
 type Props = {
   children: React.ReactNode;
@@ -20,6 +21,10 @@ const SharedLayout: React.FC<Props & ContentType> = ({
 }) => {
   const [isSideBar, setIsSideBar] = useState<boolean>(false);
 
+  const location = useLocation()
+
+const {pathname} = location;
+
   const toggleSideBar = () => {
     setIsSideBar(!isSideBar);
   };
@@ -34,7 +39,10 @@ const SharedLayout: React.FC<Props & ContentType> = ({
           isSideBar={isSideBar}
           specificName={specificName}
         />
-        <ViewSwitcher specificName={specificName ? specificName : null} />
+        {pathname !== "/new" ? (
+          <ViewSwitcher specificName={specificName ? specificName : null} />
+        ) : null}
+
         {children}
       </SC.CommonWrapper>
     </SC.SharedLayoutStyled>

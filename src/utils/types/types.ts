@@ -1,3 +1,5 @@
+import { StringLiteralLike } from "typescript";
+
 export type HeaderProps = {
   docName: string | null;
   toggleSideBar: () => void;
@@ -34,3 +36,4 @@ export type ButtonType = {
   isEdit: boolean;
   specificName: string | null;
 };
+
