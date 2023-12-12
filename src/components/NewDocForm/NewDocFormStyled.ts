@@ -7,10 +7,10 @@ export const NewDocFormStyled = styled.form`
   flex-direction: column;
 
   & > div {
-    height: inherit;
+    min-height: 70%;
+;
 
     padding-top: 16px;
-    padding-bottom: 54px;
     padding-left: 20px;
     padding-right: 20px;
   }
@@ -39,7 +39,8 @@ export const InputStyled = styled.input`
 `;
 
 export const TextareaStyled = styled.textarea`
-  height: inherit;
+height: 100%;
+width: 100%;
 
   background-color: inherit;
   color: ${(props) => props.theme.secondaryText};

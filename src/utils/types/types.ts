@@ -31,9 +31,12 @@ export type AllContent = {
 
 export type ButtonType = {
   icon: string;
-  typeName: "save" | "delete" | "switcher" | "add" | undefined;
+  typeName: "save" | "delete" | "switcher" | "add" | "draft" | undefined;
   handle: () => void;
   isEdit: boolean;
   specificName: string | null;
 };
 
+export type NewDocType = {
+  handleDraft:  (values: { name: string; content: string }) => void;
+};

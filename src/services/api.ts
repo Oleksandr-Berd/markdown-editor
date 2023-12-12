@@ -24,3 +24,14 @@ export const getOneData = async (name:string) => {
          return error;
     }
 }
+
+
+export const addDoc = async (data: {}) => {
+  try {
+    const response = await instance.post("/add", data);
+
+    return response;
+  } catch (error) {
+    return error;
+  }
+};

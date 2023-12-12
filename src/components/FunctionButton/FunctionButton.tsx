@@ -29,9 +29,19 @@ const {pathname} = location
   }, [isEdit, navigate, pathname, specificName]);
 
   return (
-    <SC.FunctionButtonStyled typeName={typeName} onClick={handle}>
-      {typeName !== "add" ? <img src={icon} alt={typeName} /> : null}
-      {typeName === "add" ? "+ New Document" : null}
+    <SC.FunctionButtonStyled
+      type={typeName === "draft" ? "submit" : "button"}
+      typeName={typeName}
+      onClick={handle}
+    >
+      {typeName !== "add" && typeName !== "draft" ? (
+        <img src={icon} alt={typeName} />
+      ) : null}
+      {typeName === "add"
+        ? "+ New Document"
+        : typeName === "draft"
+        ? "Completed"
+        : null}
     </SC.FunctionButtonStyled>
   );
 };

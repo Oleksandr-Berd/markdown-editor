@@ -22,6 +22,10 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<string | null>(null);
   const [doc, setDoc] = useState<Content | null>(null);
+  const [draft, setDraft] = useState<{
+    name: string;
+    content: string;
+  } | null>(null);
 
   const { theme } = useContext(ThemeContext);
 
@@ -55,6 +59,13 @@ function App() {
     setIsLoading(false);
   };
 
+ const handleDraft = ({name, content}: {name: string, content: string}) => {
+  setDraft({name, content})
+ };
+
+
+ console.log(draft);
+ 
   let defaultContent;
 
   if (allContent)
@@ -87,7 +98,7 @@ function App() {
               />
               <Route
                 path="new"
-                element={<NewDocPage />}
+                element={<NewDocPage handleDraft={handleDraft} />}
               />
             </Routes>
           </SharedLayout>

@@ -1,11 +1,12 @@
-import { ChangeEvent } from "react";
-
+import { ChangeEvent, FormEvent } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 import * as SC from "./NewDocFormStyled";
+import { NewDocType } from "../../utils/types/types";
+import FunctionButton from "../FunctionButton/FunctionButton";
 
-const NewFormDoc: React.FC = () => {
+const NewFormDoc: React.FC<NewDocType> = ({ handleDraft }) => {
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .required("Name is required")
@@ -30,12 +31,16 @@ const NewFormDoc: React.FC = () => {
     formik.handleChange(evt);
   };
 
-  // const handleSubmit = (evt) => {
-  //     evt.preventDefault()
-  // }
+  const handleSubmit = (evt: FormEvent<HTMLFormElement>) => {
+    evt.preventDefault();
+
+    const { name, content } = formik.values;
+
+    handleDraft({ name, content });
+  };
 
   return (
-    <SC.NewDocFormStyled>
+    <SC.NewDocFormStyled onSubmit={handleSubmit}>
       <SC.InputStyled
         type="text"
         placeholder="Type your document name"
@@ -45,6 +50,7 @@ const NewFormDoc: React.FC = () => {
       <div>
         <SC.TextareaStyled name="content" onChange={handleChange} />
       </div>
+      <FunctionButton typeName="draft"/>
     </SC.NewDocFormStyled>
   );
 };
