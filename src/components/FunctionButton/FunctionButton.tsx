@@ -10,13 +10,14 @@ const FunctionButton: React.FC<Partial<ButtonType>> = ({
   typeName,
   handle,
   isEdit,
-  specificName
+  specificName,
+  locationPage,
 }) => {
   const navigate = useNavigate();
 
-const location = useLocation()
+  const location = useLocation();
 
-const {pathname} = location
+  const { pathname } = location;
 
   useEffect(() => {
     if (isEdit) {
@@ -30,18 +31,13 @@ const {pathname} = location
 
   return (
     <SC.FunctionButtonStyled
-      type={typeName === "draft" ? "submit" : "button"}
+      type={locationPage === "draft" ? "submit" : "button"}
       typeName={typeName}
       onClick={handle}
+      locationPage={locationPage}
     >
-      {typeName !== "add" && typeName !== "draft" ? (
-        <img src={icon} alt={typeName} />
-      ) : null}
-      {typeName === "add"
-        ? "+ New Document"
-        : typeName === "draft"
-        ? "Completed"
-        : null}
+      {typeName !== "add" ? <img src={icon} alt={typeName} /> : null}
+      {typeName === "add" ? "+ New Document" : null}
     </SC.FunctionButtonStyled>
   );
 };

@@ -9,12 +9,20 @@ import docIcon from "../../assets/images/icon-document.svg";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import { useNavigate } from "react-router-dom";
 
-const SideBar: React.FC<AllContent> = ({ allContent }) => {
-  const navigate = useNavigate()
-
-const newPageNavigate = ()=>{
-navigate("new")
+type Props = {
+  toggleSideBar: ()=> void
 }
+
+const SideBar: React.FC<AllContent & Props> = ({
+  allContent,
+  toggleSideBar,
+}) => {
+  const navigate = useNavigate();
+
+  const newPageNavigate = () => {
+    navigate("new");
+    toggleSideBar()
+  };
 
   if (allContent && allContent.length > 0) {
     return (
@@ -32,7 +40,9 @@ navigate("new")
                 <img src={docIcon} alt="docIcon" />
                 <div>
                   <SC.Date>{transformDateFormat(createdAt)}</SC.Date>
-                  <SC.Name to={name}>{name}</SC.Name>
+                  <SC.Name to={name} onClick={toggleSideBar}>
+                    {name}
+                  </SC.Name>
                 </div>
               </SC.SideBarItem>
             ))}

@@ -4,10 +4,10 @@ import * as SC from "./NewDocPageStyled"
 
 
 
-const NewDocPage:React.FC<NewDocType> = ({handleDraft}) => {
+const NewDocPage:React.FC<NewDocType> = ({ isSideBar}) => {
     return (
       <SC.NewDocPageStyled>
-        <NewFormDoc handleDraft={handleDraft} />
+        <NewFormDoc  isSideBar={isSideBar} />
       </SC.NewDocPageStyled>
     );
 }

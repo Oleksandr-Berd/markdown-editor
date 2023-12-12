@@ -1,3 +1,4 @@
+import { FormEvent } from "react";
 import { StringLiteralLike } from "typescript";
 
 export type HeaderProps = {
@@ -31,12 +32,13 @@ export type AllContent = {
 
 export type ButtonType = {
   icon: string;
-  typeName: "save" | "delete" | "switcher" | "add" | "draft" | undefined;
+  typeName: "save" | "delete" | "switcher" | "add" | undefined;
   handle: () => void;
   isEdit: boolean;
   specificName: string | null;
+  locationPage: string | undefined;
 };
 
 export type NewDocType = {
-  handleDraft:  (values: { name: string; content: string }) => void;
+  isSideBar: boolean;
 };

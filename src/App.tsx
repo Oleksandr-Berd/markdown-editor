@@ -22,10 +22,8 @@ function App() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<string | null>(null);
   const [doc, setDoc] = useState<Content | null>(null);
-  const [draft, setDraft] = useState<{
-    name: string;
-    content: string;
-  } | null>(null);
+   const [isSideBar, setIsSideBar] = useState<boolean>(false);
+
 
   const { theme } = useContext(ThemeContext);
 
@@ -45,7 +43,7 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [isSideBar]);
 
   const fetchDoc = async (name: string) => {
     setIsLoading(true);
@@ -59,12 +57,11 @@ function App() {
     setIsLoading(false);
   };
 
- const handleDraft = ({name, content}: {name: string, content: string}) => {
-  setDraft({name, content})
- };
 
+const toggleSideBar = () => {
+  setIsSideBar(!isSideBar);
+};
 
- console.log(draft);
  
   let defaultContent;
 
@@ -81,6 +78,8 @@ function App() {
             defaultContent={defaultContent}
             allContent={allContent ? allContent : []}
             specificName={doc ? doc.name : null}
+            toggleSideBar={toggleSideBar}
+            isSideBar={isSideBar}
           >
             {isLoading ? <Loader /> : null}
             <Routes>
@@ -98,7 +97,7 @@ function App() {
               />
               <Route
                 path="new"
-                element={<NewDocPage handleDraft={handleDraft} />}
+                element={<NewDocPage isSideBar={isSideBar} />}
               />
             </Routes>
           </SharedLayout>

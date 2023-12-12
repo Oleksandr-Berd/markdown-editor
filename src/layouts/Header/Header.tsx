@@ -8,7 +8,6 @@ import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import FunctionButton from "../../components/FunctionButton/FunctionButton";
 import { HeaderProps } from '../../utils/types/types';
 import { useLocation } from "react-router-dom";
-import { ChangeEvent } from "react";
 
 
 
@@ -23,17 +22,28 @@ const location = useLocation()
 
 const {pathname} = location
 
+
   return (
     <SC.HeaderStyled>
       <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />
       <SC.DocWrapper>
         <DocIcon />
-        <p>{pathname === "/new" ? "new_doc" : specificName ? specificName : docName}</p>
+        <p>
+          {pathname === "/new"
+            ? "new_doc"
+            : specificName
+            ? specificName
+            : docName}
+        </p>
       </SC.DocWrapper>
       <SC.CommonWrapper>
         <SC.ButtonsWrapper>
           <FunctionButton icon={deleteIcon} typeName="delete" />
-          <FunctionButton icon={saveIcon} typeName="save" />
+          <FunctionButton
+            icon={saveIcon}
+            typeName="save"
+            locationPage={pathname}
+          />
         </SC.ButtonsWrapper>
       </SC.CommonWrapper>
     </SC.HeaderStyled>
