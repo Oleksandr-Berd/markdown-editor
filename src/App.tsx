@@ -15,6 +15,7 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import DocPage from "./pages/DocPage/DocPage";
 import { Content } from "./utils/types/types";
 import EditedContentPage from "./pages/EditedContent/EditedContentPage";
+import NewDocPage from "./pages/NewDocPage/NewDocPage";
 
 function App() {
   const [allContent, setAllContent] = useState<[] | null>(null);
@@ -83,7 +84,11 @@ function App() {
               />
               <Route
                 path="edit"
-                element={<EditedContentPage doc={doc ? doc : defaultContent}/>}
+                element={<EditedContentPage doc={doc ? doc : defaultContent} />}
+              />
+              <Route
+                path="new"
+                element={<NewDocPage/>}
               />
             </Routes>
           </SharedLayout>

@@ -7,9 +7,14 @@ import Loader from "../Loader/Loader";
 import { AllContent } from "../../utils/types/types";
 import docIcon from "../../assets/images/icon-document.svg";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import { useNavigate } from "react-router-dom";
 
 const SideBar: React.FC<AllContent> = ({ allContent }) => {
-  
+  const navigate = useNavigate()
+
+const newPageNavigate = ()=>{
+navigate("new")
+}
 
   if (allContent && allContent.length > 0) {
     return (
@@ -17,7 +22,10 @@ const SideBar: React.FC<AllContent> = ({ allContent }) => {
         <div>
           <h2>markdown</h2>
           <h3>my documents</h3>
-          <FunctionButton typeName="add"></FunctionButton>
+          <FunctionButton
+            typeName="add"
+            handle={newPageNavigate}
+          ></FunctionButton>
           <SC.SideBarList>
             {allContent.map(({ name, createdAt, _id }) => (
               <SC.SideBarItem key={_id}>

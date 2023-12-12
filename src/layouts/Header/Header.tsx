@@ -7,6 +7,7 @@ import saveIcon from "../../assets/images/icon-save.svg";
 import BurgerMenu from "../../components/BurgerMenu/BurgerMenu";
 import FunctionButton from "../../components/FunctionButton/FunctionButton";
 import { HeaderProps } from '../../utils/types/types';
+import { useLocation } from "react-router-dom";
 
 
 
@@ -16,12 +17,18 @@ const Header: React.FC<HeaderProps> = ({
   isSideBar,
   specificName,
 }) => {
+
+const location = useLocation()
+
+const {pathname} = location
+
+
   return (
     <SC.HeaderStyled>
       <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />
       <SC.DocWrapper>
         <DocIcon />
-        <p>{specificName ? specificName : docName}</p>
+        <p>{pathname === "/new" ? "new_doc" : specificName ? specificName : docName}</p>
       </SC.DocWrapper>
       <SC.CommonWrapper>
         <SC.ButtonsWrapper>

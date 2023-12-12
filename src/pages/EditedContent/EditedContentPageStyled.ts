@@ -92,13 +92,13 @@ export const EditedList = styled.div`
 
   & ul li {
     position: relative;
-    padding-left: 16px; /* Adjust the left padding based on your preference */
+    padding-left: 16px; 
 
-    /* Add red dot */
+    
     &:before {
-      content: "•"; /* Unicode character for a bullet point */
+      content: "•"; 
       color: red;
-      font-size: 1.5em; /* Adjust the size based on your preference */
+      font-size: 1.5em; 
       position: absolute;
       left: 0;
       top: 50%;
