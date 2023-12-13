@@ -13,7 +13,7 @@ export const FunctionButtonStyled = styled.button<Partial<ButtonType>>`
 
 
   width: ${(props) =>
-    props.typeName === "add"
+    props.typeName === "add" || props.typeName === "confirmDelete"
       ? "100%"
       : props.typeName === "save"
       ? "40px"
@@ -39,16 +39,19 @@ export const FunctionButtonStyled = styled.button<Partial<ButtonType>>`
   margin-right: ${(props) =>
     props.typeName === "save" && props.locationPage === "draft"
       ? "8px"
-      : "0"};
+    : "0"};
+
+    font-family: "RobotoRegular";
+    font-size: 15px;
 
   background-color: ${(props) =>
     props.typeName === "save"
       ? "#E46643"
-      : props.typeName === "add"
+      : props.typeName === "add" || props.typeName === "confirmDelete"
       ? "#E46643"
       : "transparent"};
 
-  color: ${(props) => (props.typeName === "add" ? "#fff" : "none")};
+  color: ${(props) => (props.typeName === "add" || "confirmDelete" ? "#fff" : "none")};
 
   border: none;
   border-radius: 4px;

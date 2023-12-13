@@ -1,17 +1,22 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, MouseEventHandler } from "react";
 
 import { ButtonType } from "../../utils/types/types";
-import * as SC from "./FunctionButtonStyled"
+import * as SC from "./FunctionButtonStyled";
 
+interface FunctionButtonProps extends Partial<ButtonType> {
+  handleDelete?: (name: string) => void;
+  handle?: MouseEventHandler<HTMLButtonElement>;
+}
 
-const FunctionButton: React.FC<Partial<ButtonType>> = ({
+const FunctionButton: React.FC<FunctionButtonProps> = ({
   icon,
   typeName,
   handle,
   isEdit,
   specificName,
   locationPage,
+  handleDelete,
 }) => {
   const navigate = useNavigate();
 
@@ -41,5 +46,5 @@ const FunctionButton: React.FC<Partial<ButtonType>> = ({
     </SC.FunctionButtonStyled>
   );
 };
- 
+
 export default FunctionButton;

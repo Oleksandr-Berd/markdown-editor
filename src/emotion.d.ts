@@ -8,6 +8,7 @@ declare module "@emotion/react" {
     secondaryText: string;
     viewSwitcherBg: string;
     blockquote: string;
+    modalBg: string;
   };
   }
 

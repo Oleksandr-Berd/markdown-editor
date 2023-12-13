@@ -1,11 +1,11 @@
-import { FormEvent } from "react";
-import { StringLiteralLike } from "typescript";
+import { MouseEventHandler } from "react";
 
 export type HeaderProps = {
   docName: string | null;
   toggleSideBar: () => void;
   isSideBar: boolean;
   specificName: string | null;
+  toggleModal: ()=> void;
 };
 
 export type ContentType = {
@@ -32,8 +32,15 @@ export type AllContent = {
 
 export type ButtonType = {
   icon: string;
-  typeName: "save" | "delete" | "switcher" | "add" | undefined;
-  handle: () => void;
+  typeName:
+    | "save"
+    | "delete"
+    | "switcher"
+    | "add"
+    | "confirmDelete"
+    | undefined;
+  handle?: MouseEventHandler<HTMLButtonElement>;
+  handleDelete: (name: string) => void;
   isEdit: boolean;
   specificName: string | null;
   locationPage: string | undefined;

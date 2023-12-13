@@ -1,21 +1,24 @@
-import { useContext, useEffect, useState } from "react";
+import { lazy, useContext, useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 
 import ThemeContext from "./utils/context/themeContext";
 
 import "./App.css";
+import SharedLayout from "./layouts/SharedLayout/SharedLayout";
+
 import { lightTheme } from "./utils/styles/lightTheme";
 import { darkTheme } from "./utils/styles/darkTheme";
-import SharedLayout from "./layouts/SharedLayout/SharedLayout";
-import { Route, Routes } from "react-router-dom";
-import HomePage from "./pages/HomePage/HomePage";
 import { getAllData, getOneData } from "./services/api";
-import Loader from "./components/Loader/Loader";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
-import DocPage from "./pages/DocPage/DocPage";
 import { Content } from "./utils/types/types";
-import EditedContentPage from "./pages/EditedContent/EditedContentPage";
-import NewDocPage from "./pages/NewDocPage/NewDocPage";
+import DocPage from "./pages/DocPage/DocPage";
+
+const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"))
+const Loader = lazy(()=> import("./components/Loader/Loader"))
+const HomePage = lazy(() => import ("./pages/HomePage/HomePage"))
+const EditedContentPage = lazy(()=> import("./pages/EditedContent/EditedContentPage"))
+const NewDocPage = lazy(()=> import("./pages/NewDocPage/NewDocPage"))
+
 
 function App() {
   const [allContent, setAllContent] = useState<[] | null>(null);

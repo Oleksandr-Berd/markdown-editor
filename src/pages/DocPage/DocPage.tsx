@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import * as SC from "./DocPageStyled"
 
 import { Content } from "../../utils/types/types";
+import Loader from "../../components/Loader/Loader";
 
 type Props = {
   doc: Content | null;
@@ -24,11 +25,18 @@ const DocPage: React.FC<Props> = ({ fetchDoc, doc }) => {
   const contentArray = doc ? doc.content.split("\n\n") : null;
 
   return (
-    <SC.ContentList>
-      {contentArray
-        ? contentArray.map((el) => <SC.ContentListItem key={el}>{el}</SC.ContentListItem>)
-        : "............"}
-    </SC.ContentList>
+    
+   
+<SC.ContentList>
+  {contentArray
+    ? contentArray.map((el) => (
+        <SC.ContentListItem key={el}>{el}</SC.ContentListItem>
+      ))
+    : <Loader/>}
+</SC.ContentList>
+   
+      
+  
   );
 };
 

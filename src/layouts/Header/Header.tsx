@@ -16,12 +16,11 @@ const Header: React.FC<HeaderProps> = ({
   toggleSideBar,
   isSideBar,
   specificName,
+  toggleModal,
 }) => {
+  const location = useLocation();
 
-const location = useLocation()
-
-const {pathname} = location
-
+  const { pathname } = location;
 
   return (
     <SC.HeaderStyled>
@@ -38,7 +37,7 @@ const {pathname} = location
       </SC.DocWrapper>
       <SC.CommonWrapper>
         <SC.ButtonsWrapper>
-          <FunctionButton icon={deleteIcon} typeName="delete" />
+          <FunctionButton icon={deleteIcon} typeName="delete" handle={toggleModal}/>
           <FunctionButton
             icon={saveIcon}
             typeName="save"
