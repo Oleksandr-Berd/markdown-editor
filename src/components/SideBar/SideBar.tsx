@@ -6,7 +6,6 @@ import * as SC from "./SideBarStyled";
 
 import { transformDateFormat } from "../../services/helpers";
 import FunctionButton from "../FunctionButton/FunctionButton";
-import Loader from "../Loader/Loader";
 import { AllContent, Content } from "../../utils/types/types";
 import docIcon from "../../assets/images/icon-document.svg";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
