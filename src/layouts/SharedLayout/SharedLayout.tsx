@@ -5,7 +5,7 @@ import ViewSwitcher from "../ViewSwitcher/ViewSwitcher";
 import { ContentType } from "../../utils/types/types";
 import SideBar from "../../components/SideBar/SideBar";
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
 
 type Props = {
@@ -34,6 +34,10 @@ const SharedLayout: React.FC<Props & ContentType> = ({
   const toggleModal = () =>{
     setIsModal(!isModal)
   }
+
+  useEffect(() => {
+    if (location.pathname === "/" && isModal === true) setIsModal(false);
+  }, [isModal, location.pathname]);
 
   return (
     <SC.SharedLayoutStyled isSideBar={isSideBar}>

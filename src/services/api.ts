@@ -35,3 +35,13 @@ export const addDoc = async (data: {}) => {
     return error;
   }
 };
+
+export const deleteDoc = async (name:string) => {
+try {
+  const response = await instance.delete(`/delete/${name}`)
+
+  return response.data
+} catch (error) {
+  return error
+}
+}
