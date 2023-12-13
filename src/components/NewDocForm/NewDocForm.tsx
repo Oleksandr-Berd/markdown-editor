@@ -46,7 +46,7 @@ const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
 
     const response = await addDoc({ name, content });
 
-    if (response) {
+    if (response && !formik.errors.name) {
       formik.resetForm();
       toast.success(`Your document was successfully saved! `, {
         position: "top-center",
@@ -58,22 +58,37 @@ const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
         progress: undefined,
         theme: "dark",
       });
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+    } else if (formik.errors) {
+      toast.error(`${formik.errors.name}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
-    setTimeout(()=>{
-      navigate("/")
-    }, 2000)
+    
   };
 
   return (
     <>
       <ToastContainer />
       <SC.NewDocFormStyled onSubmit={handleSubmit}>
-        <SC.InputStyled
-          type="text"
-          placeholder="Type your document name"
-          name="name"
-          onChange={handleChange}
-        />
+        <SC.InputWrapper>
+          <SC.InputStyled
+            type="text"
+            placeholder="Type your document name"
+            name="name"
+            onChange={handleChange}
+          />
+          {formik.errors.name ? <SC.ErrorStyled>{formik.errors.name}</SC.ErrorStyled> : null}
+        </SC.InputWrapper>
         <div>
           <SC.TextareaStyled name="content" onChange={handleChange} />
         </div>

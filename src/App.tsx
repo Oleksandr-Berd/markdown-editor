@@ -11,14 +11,13 @@ import { lightTheme } from "./utils/styles/lightTheme";
 import { darkTheme } from "./utils/styles/darkTheme";
 import { getAllData, getOneData } from "./services/api";
 import { Content } from "./utils/types/types";
-import DocPage from "./pages/DocPage/DocPage";
-import NewDocPage from './pages/NewDocPage/NewDocPage';
 
 const ErrorPage = lazy(() => import("./pages/ErrorPage/ErrorPage"))
 const Loader = lazy(()=> import("./components/Loader/Loader"))
 const HomePage = lazy(() => import ("./pages/HomePage/HomePage"))
 const EditedContentPage = lazy(()=> import("./pages/EditedContent/EditedContentPage"))
-
+const NewDocPage = lazy(() => import("./pages/NewDocPage/NewDocPage"))
+const DocPage = lazy(()=> import("./pages/DocPage/DocPage"))
 
 function App() {
   const [allContent, setAllContent] = useState<[] | null>(null);

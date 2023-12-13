@@ -5,8 +5,10 @@ import ViewSwitcher from "../ViewSwitcher/ViewSwitcher";
 import { ContentType } from "../../utils/types/types";
 import SideBar from "../../components/SideBar/SideBar";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
+import Loader from "../../components/Loader/Loader";
+import { DNA } from "react-loader-spinner";
 
 type Props = {
   children: React.ReactNode;
@@ -41,26 +43,42 @@ const SharedLayout: React.FC<Props & ContentType> = ({
 
   return (
     <SC.SharedLayoutStyled isSideBar={isSideBar}>
-      {isModal ? (
-        <ModalDelete onClose={toggleModal} name={specificName ? specificName : ""} />
-      ) : null}
-      {isSideBar ? (
-        <SideBar allContent={allContent} toggleSideBar={toggleSideBar} />
-      ) : null}
-      <SC.CommonWrapper isSideBar={isSideBar}>
-        <Header
-          docName={defaultContent ? defaultContent.name : null}
-          toggleSideBar={toggleSideBar}
-          isSideBar={isSideBar}
-          specificName={specificName}
-          toggleModal={toggleModal}
-        />
-        {pathname !== "/new" ? (
-          <ViewSwitcher specificName={specificName ? specificName : null} />
+      <Suspense
+        fallback={
+          <DNA
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="dna-loading"
+            wrapperStyle={{}}
+            wrapperClass="dna-wrapper"
+          />
+        }
+      >
+        {isModal ? (
+          <ModalDelete
+            onClose={toggleModal}
+            name={specificName ? specificName : ""}
+          />
         ) : null}
+        {isSideBar ? (
+          <SideBar allContent={allContent} toggleSideBar={toggleSideBar} />
+        ) : null}
+        <SC.CommonWrapper isSideBar={isSideBar}>
+          <Header
+            docName={defaultContent ? defaultContent.name : null}
+            toggleSideBar={toggleSideBar}
+            isSideBar={isSideBar}
+            specificName={specificName}
+            toggleModal={toggleModal}
+          />
+          {pathname !== "/new" ? (
+            <ViewSwitcher specificName={specificName ? specificName : null} />
+          ) : null}
 
-        {children}
-      </SC.CommonWrapper>
+          {children}
+        </SC.CommonWrapper>
+      </Suspense>
     </SC.SharedLayoutStyled>
   );
 };

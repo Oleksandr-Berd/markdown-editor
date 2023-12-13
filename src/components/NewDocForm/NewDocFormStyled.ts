@@ -8,15 +8,19 @@ export const NewDocFormStyled = styled.form`
 
   & > div {
     min-height: 70%;
-;
-
     padding-top: 16px;
     padding-left: 20px;
     padding-right: 20px;
   }
 `;
 
+export const InputWrapper = styled.div`
+  position: relative;
+`;
+
 export const InputStyled = styled.input`
+  width: 100%;
+
   padding-top: 12px;
   padding-bottom: 12px;
   padding-left: 20px;
@@ -27,6 +31,7 @@ export const InputStyled = styled.input`
   background-color: #c1c4cb;
   color: #1d1f22;
 
+  border-radius: 4px;
   border: none;
 
   &:focus {
@@ -39,8 +44,8 @@ export const InputStyled = styled.input`
 `;
 
 export const TextareaStyled = styled.textarea`
-height: 100%;
-width: 100%;
+  height: 100%;
+  width: 100%;
 
   background-color: inherit;
   color: ${(props) => props.theme.secondaryText};
@@ -49,4 +54,17 @@ width: 100%;
   &:focus {
     outline: none;
   }
+`;
+
+export const ErrorStyled = styled.p`
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+transform: translateY(26px) translateX(-40px);
+
+  font-family: "RobotoSlabBold";
+  font-size: 14px;
+  color: #ff0000;
 `;
