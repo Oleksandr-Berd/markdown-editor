@@ -61,7 +61,6 @@ const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
     }
 
     const response = (await addDoc({ name, content })) as ApiResponse;
-console.log(response);
 
     if (response.message) {
       toast.error(`${response.message}`, {
@@ -96,7 +95,7 @@ console.log(response);
     <>
       <ToastContainer />
       <SC.NewDocFormStyled onSubmit={handleSubmit}>
-        <SC.InputWrapper>
+        
           <SC.InputStyled
             type="text"
             placeholder="Type your document name"
@@ -106,7 +105,7 @@ console.log(response);
           {formik.errors.name ? (
             <SC.ErrorStyled>{formik.errors.name}</SC.ErrorStyled>
           ) : null}
-        </SC.InputWrapper>
+       
         <div>
           <SC.TextareaStyled name="content" onChange={handleChange} />
         </div>

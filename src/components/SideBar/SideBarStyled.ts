@@ -76,3 +76,23 @@ export const Name = styled(NavLink)`
   font-family: "RobotoRegular";
   color: #fff;
 `;
+
+export const IconWrapper = styled.div`
+  margin-bottom: 24px;
+
+  & svg:first-of-type {
+    margin-right: 16px;
+  }
+
+  & span {
+    margin-right: 16px;
+
+    color: #fff;
+  }
+  & > button {
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+  }
+`;

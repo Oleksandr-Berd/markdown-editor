@@ -25,6 +25,7 @@ function App() {
   const [isError, setIsError] = useState<string | null>(null);
   const [doc, setDoc] = useState<Content | null>(null);
    const [isSideBar, setIsSideBar] = useState<boolean>(false);
+   const [page, setPage] = useState<number>(1)
 
 
   const { theme } = useContext(ThemeContext);
@@ -64,6 +65,13 @@ const toggleSideBar = () => {
   setIsSideBar(!isSideBar);
 };
 
+const nextDocs = () => {
+setPage(prev => prev + 1)
+}
+
+const prevDocs = () => {
+  setPage((prev) => prev - 1);
+}
  
 const clearName = () => {
   setDoc(null)
@@ -73,6 +81,8 @@ const clearName = () => {
 
   if (allContent)
     defaultContent = allContent.find(({ name }) => name === "welcome.md");
+
+
 
   return (
     <>
@@ -87,6 +97,9 @@ const clearName = () => {
             toggleSideBar={toggleSideBar}
             isSideBar={isSideBar}
             clearName={clearName}
+            nextDocs={nextDocs}
+            prevDocs={prevDocs}
+            page={page}
           >
             {isLoading ? <Loader /> : null}
             <Routes>

@@ -15,7 +15,10 @@ type Props = {
   specificName: string | null;
   toggleSideBar: () => void;
   isSideBar: boolean;
-  clearName:()=>void
+  clearName: () => void;
+  prevDocs: () => void;
+  nextDocs: () => void;
+  page: number;
 };
 
 const SharedLayout: React.FC<Props & ContentType> = ({
@@ -26,6 +29,9 @@ const SharedLayout: React.FC<Props & ContentType> = ({
   toggleSideBar,
   isSideBar,
   clearName,
+  nextDocs,
+  prevDocs,
+  page,
 }) => {
   const [isModal, setIsModal] = useState<boolean>(false);
 
@@ -63,7 +69,13 @@ const SharedLayout: React.FC<Props & ContentType> = ({
           />
         ) : null}
         {isSideBar ? (
-          <SideBar allContent={allContent} toggleSideBar={toggleSideBar} />
+          <SideBar
+            allContent={allContent}
+            toggleSideBar={toggleSideBar}
+            prevDocs={prevDocs}
+            nextDocs={nextDocs}
+            page={page}
+          />
         ) : null}
         <SC.CommonWrapper isSideBar={isSideBar}>
           <Header

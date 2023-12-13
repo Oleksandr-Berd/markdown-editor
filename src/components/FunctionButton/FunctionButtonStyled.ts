@@ -7,7 +7,7 @@ export const FunctionButtonStyled = styled.button<Partial<ButtonType>>`
       ? "absolute"
       : "static"};
   top: ${(props) =>
-    props.typeName === "save" && props.locationPage === "draft" ? "0" : "auto"};
+    props.typeName === "save" && props.locationPage === "draft" ? "-60px" : "auto"};
   right: ${(props) =>
     props.typeName === "save" && props.locationPage === "draft" ? "0" : "auto"};
 

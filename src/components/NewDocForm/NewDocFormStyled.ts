@@ -1,6 +1,8 @@
 import styled from "@emotion/styled";
 
 export const NewDocFormStyled = styled.form`
+  position: relative;
+
   height: 100vh;
 
   display: flex;
@@ -12,10 +14,6 @@ export const NewDocFormStyled = styled.form`
     padding-left: 20px;
     padding-right: 20px;
   }
-`;
-
-export const InputWrapper = styled.div`
-  position: relative;
 `;
 
 export const InputStyled = styled.input`
@@ -62,7 +60,7 @@ export const ErrorStyled = styled.p`
   top: 0;
   right: 0;
 
-transform: translateY(26px) translateX(-40px);
+  transform: translateY(12px) translateX(-12px);
 
   font-family: "RobotoSlabBold";
   font-size: 14px;
