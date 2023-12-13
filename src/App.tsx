@@ -65,6 +65,10 @@ const toggleSideBar = () => {
 };
 
  
+const clearName = () => {
+  setDoc(null)
+}
+
   let defaultContent;
 
   if (allContent)
@@ -82,6 +86,7 @@ const toggleSideBar = () => {
             specificName={doc ? doc.name : null}
             toggleSideBar={toggleSideBar}
             isSideBar={isSideBar}
+            clearName={clearName}
           >
             {isLoading ? <Loader /> : null}
             <Routes>

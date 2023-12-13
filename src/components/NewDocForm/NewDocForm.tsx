@@ -11,9 +11,12 @@ import saveIcon from "../../assets/images/icon-save.svg";
 import { addDoc } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
-const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
+interface ApiResponse {
+  message?: string;
+}
 
-  const navigate = useNavigate()
+const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object().shape({
     name: Yup.string()
@@ -43,10 +46,35 @@ const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
     evt.preventDefault();
 
     const { name, content } = formik.values;
+    if (formik.errors.name) {
+      toast.error(`${formik.errors.name}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      return
+    }
 
-    const response = await addDoc({ name, content });
+    const response = (await addDoc({ name, content })) as ApiResponse;
+console.log(response);
 
-    if (response && !formik.errors.name) {
+    if (response.message) {
+      toast.error(`${response.message}`, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+    } else if (response) {
       formik.resetForm();
       toast.success(`Your document was successfully saved! `, {
         position: "top-center",
@@ -61,19 +89,7 @@ const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
       setTimeout(() => {
         navigate("/");
       }, 2000);
-    } else if (formik.errors) {
-      toast.error(`${formik.errors.name}`, {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
     }
-    
   };
 
   return (
@@ -87,7 +103,9 @@ const NewFormDoc: React.FC<NewDocType> = ({ isSideBar }) => {
             name="name"
             onChange={handleChange}
           />
-          {formik.errors.name ? <SC.ErrorStyled>{formik.errors.name}</SC.ErrorStyled> : null}
+          {formik.errors.name ? (
+            <SC.ErrorStyled>{formik.errors.name}</SC.ErrorStyled>
+          ) : null}
         </SC.InputWrapper>
         <div>
           <SC.TextareaStyled name="content" onChange={handleChange} />

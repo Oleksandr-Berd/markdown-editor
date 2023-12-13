@@ -8,9 +8,10 @@ import { useNavigate } from "react-router-dom";
 type Props = {
   onClose: () => void;
   name: string;
+  clearName: () => void;
 };
 
-const ModalDelete: React.FC<Props> = ({ onClose, name }) => {
+const ModalDelete: React.FC<Props> = ({ onClose, name, clearName }) => {
   const navigate = useNavigate();
 
   const handleBackdropClick = (evt: React.MouseEvent<HTMLDivElement>) => {
@@ -48,6 +49,7 @@ const ModalDelete: React.FC<Props> = ({ onClose, name }) => {
     });
 
     setTimeout(() => {
+      clearName();
       navigate("/");
     }, 2000);
   };

@@ -7,7 +7,6 @@ import SideBar from "../../components/SideBar/SideBar";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState, Suspense } from "react";
 import ModalDelete from "../../components/ModalDelete/ModalDelete";
-import Loader from "../../components/Loader/Loader";
 import { DNA } from "react-loader-spinner";
 
 type Props = {
@@ -15,7 +14,8 @@ type Props = {
   allContent: [];
   specificName: string | null;
   toggleSideBar: () => void;
-  isSideBar:boolean;
+  isSideBar: boolean;
+  clearName:()=>void
 };
 
 const SharedLayout: React.FC<Props & ContentType> = ({
@@ -25,17 +25,17 @@ const SharedLayout: React.FC<Props & ContentType> = ({
   specificName,
   toggleSideBar,
   isSideBar,
+  clearName,
 }) => {
-
-  const [isModal, setIsModal] = useState<boolean>(false)
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   const location = useLocation();
 
   const { pathname } = location;
 
-  const toggleModal = () =>{
-    setIsModal(!isModal)
-  }
+  const toggleModal = () => {
+    setIsModal(!isModal);
+  };
 
   useEffect(() => {
     if (location.pathname === "/" && isModal === true) setIsModal(false);
@@ -59,6 +59,7 @@ const SharedLayout: React.FC<Props & ContentType> = ({
           <ModalDelete
             onClose={toggleModal}
             name={specificName ? specificName : ""}
+            clearName={clearName}
           />
         ) : null}
         {isSideBar ? (
