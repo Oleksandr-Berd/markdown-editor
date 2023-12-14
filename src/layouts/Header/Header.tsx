@@ -28,11 +28,21 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <SC.HeaderStyled>
       <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />
-      <SC.DocWrapper>
-        <DocIcon />
-        {isTablet ? (
-          <div>
-            <p>Document Name</p>
+      <SC.CommonWrapper>
+        <SC.DocWrapper>
+          <DocIcon />
+          {isTablet ? (
+            <div>
+              <p>Document Name</p>
+              <p>
+                {pathname === "/new"
+                  ? "new_doc"
+                  : specificName
+                  ? specificName
+                  : docName}
+              </p>
+            </div>
+          ) : (
             <p>
               {pathname === "/new"
                 ? "new_doc"
@@ -40,18 +50,8 @@ const Header: React.FC<HeaderProps> = ({
                 ? specificName
                 : docName}
             </p>
-          </div>
-        ) : (
-          <p>
-            {pathname === "/new"
-              ? "new_doc"
-              : specificName
-              ? specificName
-              : docName}
-          </p>
-        )}
-      </SC.DocWrapper>
-      <SC.CommonWrapper>
+          )}
+        </SC.DocWrapper>
         <SC.ButtonsWrapper>
           <FunctionButton
             icon={deleteIcon}

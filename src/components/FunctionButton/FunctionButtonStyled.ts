@@ -75,7 +75,7 @@ export const FunctionButtonStyled = styled.button<Partial<ButtonType>>`
     margin-top: ${(props) => props.typeName === "save" && "0px"};
 
     margin-right: ${(props) => (props.typeName === "delete" ? "24px" : "auto")};
-    margin-left: ${(props) => (props.typeName === "delete" && "0px")};
+    margin-left: ${(props) => props.typeName === "delete" && "0px"};
 
     & > img {
       margin-right: ${(props) => props.typeName === "save" && "8px"};
@@ -85,4 +85,6 @@ export const FunctionButtonStyled = styled.button<Partial<ButtonType>>`
       font-size: ${(props) => props.typeName === "save" && "15px"};
     }
   }
+  margin-right: ${(props) =>
+    props.typeName === "save" && props.locationPage === "draft" && "auto"};
 `;

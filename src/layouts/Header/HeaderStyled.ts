@@ -15,23 +15,17 @@ export const HeaderStyled = styled.header`
 `;
 
 export const CommonWrapper = styled.div`
-  display: inline-flex;
+  width: calc(100% - 72px);
+
+  display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 
-  padding-top: 8px;
-  padding-bottom: 8px;
   padding-right: 8px;
 
-  margin-left: 24px;
-
   @media (min-width: 768px) {
-    align-items: flex-start;
-
-    padding-top: 16px;
     padding-right: 16px;
-
-    margin-left: 0;
   }
 `;
 
@@ -55,7 +49,7 @@ export const DocWrapper = styled.div`
     padding-bottom: 19px;
 
     margin-left: 24px;
-    margin-right: 310px;
+    /* margin-right: 310px; */
 
     text-align: left;
 
@@ -84,6 +78,4 @@ export const ButtonsWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-
-  
 `;
