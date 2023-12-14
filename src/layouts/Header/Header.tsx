@@ -29,9 +29,10 @@ const Header: React.FC<HeaderProps> = ({
     <SC.HeaderStyled>
       <BurgerMenu toggleSideBar={toggleSideBar} isSideBar={isSideBar} />
       <SC.CommonWrapper>
+       
         <SC.DocWrapper>
           <DocIcon />
-          {isTablet ? (
+          { isTablet ? (
             <div>
               <p>Document Name</p>
               <p>
