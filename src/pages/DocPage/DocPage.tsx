@@ -5,6 +5,8 @@ import * as SC from "./DocPageStyled"
 
 import { Content } from "../../utils/types/types";
 import Loader from "../../components/Loader/Loader";
+import { useMediaQuery } from "usehooks-ts";
+import ReactMarkdown from 'react-markdown';
 
 type Props = {
   doc: Content | null;
@@ -13,6 +15,8 @@ type Props = {
 
 const DocPage: React.FC<Props> = ({ fetchDoc, doc }) => {
   const { name } = useParams();
+
+const isTablet = useMediaQuery("(min-width:768px)")
 
   useEffect(() => {
     if (name) {
@@ -25,18 +29,34 @@ const DocPage: React.FC<Props> = ({ fetchDoc, doc }) => {
   const contentArray = doc ? doc.content.split("\n\n") : null;
 
   return (
-    
-   
-<SC.ContentList>
-  {contentArray
-    ? contentArray.map((el) => (
-        <SC.ContentListItem key={el}>{el}</SC.ContentListItem>
-      ))
-    : <Loader/>}
-</SC.ContentList>
-   
-      
-  
+    <SC.ContentList>
+      {isTablet ? (
+        <>
+          <div>
+            {contentArray ? (
+              contentArray.map((el) => (
+                <SC.ContentListItem key={el}>{el}</SC.ContentListItem>
+              ))
+            ) : (
+              <Loader />
+            )}
+          </div>
+          <div>
+            {doc ? <ReactMarkdown>{doc.content}</ReactMarkdown> : <Loader />}
+          </div>
+        </>
+      ) : (
+        <>
+          {contentArray ? (
+            contentArray.map((el) => (
+              <SC.ContentListItem key={el}>{el}</SC.ContentListItem>
+            ))
+          ) : (
+            <Loader />
+          )}
+        </>
+      )}
+    </SC.ContentList>
   );
 };
 
