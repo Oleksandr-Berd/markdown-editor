@@ -9,6 +9,7 @@ type Props = {
 };
 
 const EditedContentPage: React.FC<Props> = ({ doc }) => {
+  
   const { content } = doc!;
 
   return (

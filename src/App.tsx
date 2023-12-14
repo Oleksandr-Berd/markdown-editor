@@ -105,7 +105,11 @@ const clearName = () => {
             <Routes>
               <Route
                 path="/"
-                element={<HomePage defaultContent={defaultContent} />}
+                element={
+                  <HomePage
+                    defaultContent={defaultContent}
+                  />
+                }
               />
               <Route
                 path=":name"

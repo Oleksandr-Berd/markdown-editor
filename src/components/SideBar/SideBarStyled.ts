@@ -21,6 +21,10 @@ export const SideBarStyled = styled.aside`
 
   background-color: #1d1f22;
 
+  @media (min-width: 768px){
+    width: 33%;
+  }
+
   & h2 {
     margin-bottom: 27px;
 
