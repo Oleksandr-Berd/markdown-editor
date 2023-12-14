@@ -12,4 +12,13 @@ export const BurgerMenuStyled = styled.button`
   background-color: #35393f;
 
   border: none;
+
+  @media (min-width: 768px) {
+    max-height: 72px;
+
+    padding-top: 27px;
+    padding-bottom: 27px;
+    padding-left: 21px;
+    padding-right: 21px;
+  }
 `;

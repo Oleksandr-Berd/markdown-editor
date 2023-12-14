@@ -3,6 +3,7 @@ import { useEffect, MouseEventHandler } from "react";
 
 import { ButtonType } from "../../utils/types/types";
 import * as SC from "./FunctionButtonStyled";
+import { useMediaQuery } from "usehooks-ts";
 
 interface FunctionButtonProps extends Partial<ButtonType> {
   handleDelete?: (name: string) => void;
@@ -24,6 +25,8 @@ const FunctionButton: React.FC<FunctionButtonProps> = ({
 
   const { pathname } = location;
 
+  const isTablet = useMediaQuery("(min-width:768px)")
+
   useEffect(() => {
     if (isEdit) {
       navigate("edit");
@@ -42,7 +45,7 @@ const FunctionButton: React.FC<FunctionButtonProps> = ({
       locationPage={locationPage}
     >
       {typeName !== "add" ? <img src={icon} alt={typeName} /> : null}
-      {typeName === "add" ? "+ New Document" : null}
+      {typeName === "add" ? "+ New Document" : isTablet && typeName === "save" ? "Save Changes" : null}
     </SC.FunctionButtonStyled>
   );
 };
